@@ -1,14 +1,7 @@
-FROM openjdk:8-jre
-
-# Install pbzip2 for parallel extraction
-RUN apt-get update \
-    && apt-get -y install \
-        pbzip2 \
-        wget \
-    && rm -rf /var/lib/apt/lists/*
+FROM amazoncorretto:21
 
 WORKDIR /photon
-ADD http://photon.komoot.de/data/photon-0.2.7.jar /photon/photon.jar
+ADD https://github.com/komoot/photon/releases/download/0.5.0/photon-0.5.0.jar /photon/photon.jar
 COPY entrypoint.sh ./entrypoint.sh
 
 VOLUME /photon/photon_data
