@@ -9,7 +9,7 @@ download_index() {
 
     echo "Downloading search index for country: $country_code"
     
-    wget --user-agent="$user_agent" -O - "$target_url" | bzip2 -cd | tar x
+    wget --user-agent="$user_agent" -O - "$target_url" | pbzip2 -cd | tar x
     
     if [ $? -ne 0 ]; then
         echo "Failed to download or extract index for country: $country_code"
