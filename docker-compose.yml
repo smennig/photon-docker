@@ -9,7 +9,4 @@ services:
       - ./photon_data:/photon/photon_data
     ports:
       - 2322:2322
-
-volumes:
-  data:
-    driver: local
+    command: ["de", "at", "ch", "fr"]
